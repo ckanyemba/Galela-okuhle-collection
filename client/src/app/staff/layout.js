@@ -59,7 +59,7 @@ function Shell({ children }) {
 
 export default function StaffLayout({ children }) {
   return (
-    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}>
+    <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID || ""}>
       <StaffAuthProvider>
         <Shell>{children}</Shell>
       </StaffAuthProvider>

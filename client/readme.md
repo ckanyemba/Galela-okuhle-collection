@@ -17,7 +17,7 @@ The storefront and staff dashboard.
 ## Run locally
 
 ```bash
-cp .env.example .env.local   # set NEXT_PUBLIC_API_URL and NEXT_PUBLIC_GOOGLE_CLIENT_ID
+cp .env.example .env.local   # set API_URL and GOOGLE_CLIENT_ID
 npm install
 npm run dev                  # http://localhost:3000 (start the server too)
 ```
@@ -26,7 +26,7 @@ npm run dev                  # http://localhost:3000 (start the server too)
 
 Create a Vercel project with **Root Directory = `client`** and set:
 
-- `NEXT_PUBLIC_API_URL`: the deployed server URL
-- `NEXT_PUBLIC_GOOGLE_CLIENT_ID`: same as the server's `GOOGLE_CLIENT_ID`
+- `API_URL`: the deployed server URL
+- `GOOGLE_CLIENT_ID`: same as the server's `GOOGLE_CLIENT_ID`
 
 Then add the client's Vercel URL to the server's `CLIENT_URL`, and to the Google OAuth client's Authorised JavaScript origins.
