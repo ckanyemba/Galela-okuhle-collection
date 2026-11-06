@@ -23,7 +23,7 @@ export default function CartPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 pt-10 sm:px-6">
       <h1 className="font-display text-5xl font-semibold text-espresso">Your cart</h1>
-      <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_320px]">
+      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <ul className="divide-y divide-line border-y border-line">
           {items.map((item) => (
             <li key={`${item.productId}-${item.colour}`} className="flex gap-4 py-5">
@@ -40,11 +40,11 @@ export default function CartPage() {
                 </div>
                 <div className="mt-auto flex items-center justify-between pt-3">
                   <div className="flex items-center rounded-full border border-line bg-linen text-sm">
-                    <button className="px-3 py-1.5" onClick={() => update(item, item.quantity - 1)} aria-label="Decrease">−</button>
+                    <button className="px-3.5 py-2" onClick={() => update(item, item.quantity - 1)} aria-label="Decrease">−</button>
                     <span className="w-6 text-center">{item.quantity}</span>
-                    <button className="px-3 py-1.5" onClick={() => update(item, item.quantity + 1)} aria-label="Increase">+</button>
+                    <button className="px-3.5 py-2" onClick={() => update(item, item.quantity + 1)} aria-label="Increase">+</button>
                   </div>
-                  <button className="text-xs font-medium text-muted underline hover:text-danger" onClick={() => remove(item)}>Remove</button>
+                  <button className="-mr-2 px-2 py-2 text-xs font-medium text-muted underline hover:text-danger" onClick={() => remove(item)}>Remove</button>
                 </div>
               </div>
             </li>

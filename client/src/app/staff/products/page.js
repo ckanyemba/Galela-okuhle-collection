@@ -35,13 +35,45 @@ export default function StaffProducts() {
 
   return (
     <div>
-      <div className="flex items-end justify-between gap-4">
+      <div className="flex items-center justify-between gap-4">
         <h1 className="font-display text-4xl font-semibold text-espresso">Products</h1>
-        <Link href="/staff/products/new" className="btn-primary">+ Add product</Link>
+        <Link href="/staff/products/new" className="btn-primary px-5">+ Add<span className="hidden sm:inline">&nbsp;product</span></Link>
       </div>
       {error && <p className="mt-6 rounded-lg bg-danger/10 px-4 py-3 text-sm text-danger">{error}</p>}
-      <div className="card mt-6 overflow-x-auto">
-        <table className="w-full min-w-[640px] text-sm">
+      {/* Phone: cards */}
+      <ul className="mt-6 space-y-3 md:hidden">
+        {!products && <li className="card px-5 py-12 text-center text-muted">Loading…</li>}
+        {products?.length === 0 && <li className="card px-5 py-12 text-center text-muted">No products yet.</li>}
+        {products?.map((p) => (
+          <li key={p._id} className="card flex gap-3 p-3">
+            <Link href={`/staff/products/${p._id}`} className="shrink-0">
+              <ProductImage src={p.images?.[0]?.url} alt="" sizes="72px" className="h-24 w-[4.5rem] rounded-lg" />
+            </Link>
+            <div className="flex min-w-0 flex-1 flex-col">
+              <div className="flex items-start justify-between gap-2">
+                <Link href={`/staff/products/${p._id}`} className="min-w-0 font-medium leading-snug">{p.name}</Link>
+                <span className="shrink-0 font-semibold">{formatRand(p.price)}</span>
+              </div>
+              <p className="mt-0.5 truncate text-xs text-muted">
+                <span className="capitalize">{p.category}</span>{p.featured ? " · Featured" : ""}{p.colours?.length ? ` · ${p.colours.length} colour${p.colours.length > 1 ? "s" : ""}` : ""}
+              </p>
+              <div className="mt-auto flex items-center justify-between gap-2 pt-2">
+                <button onClick={() => toggleStock(p)} className={`rounded-full px-3 py-1.5 text-xs font-semibold ${p.inStock ? "bg-sage/15 text-sage" : "bg-danger/10 text-danger"}`}>
+                  {p.inStock ? "In stock" : "Sold out"}
+                </button>
+                <div className="flex items-center text-sm">
+                  <Link href={`/staff/products/${p._id}`} className="px-2 py-1.5 text-caramel-dark">Edit</Link>
+                  <button onClick={() => remove(p)} className="px-2 py-1.5 text-muted">Delete</button>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      {/* Tablet & desktop: table */}
+      <div className="card mt-6 hidden overflow-x-auto md:block">
+        <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-line text-left text-xs uppercase tracking-wider text-muted">
               <th className="px-5 py-3 font-semibold">Product</th>

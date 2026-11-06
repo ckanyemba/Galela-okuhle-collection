@@ -29,7 +29,7 @@ export default function Header() {
         <Logo />
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((n) => (
-            <Link key={n.href} href={n.href} className="text-sm font-medium text-espresso/80 transition hover:text-caramel-dark">
+            <Link key={n.href} href={n.href} className="py-2 text-sm font-medium text-espresso/80 transition hover:text-caramel-dark">
               {n.label}
             </Link>
           ))}

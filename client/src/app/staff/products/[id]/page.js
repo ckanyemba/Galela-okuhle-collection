@@ -149,7 +149,7 @@ export default function ProductEditor() {
           <label className="label" htmlFor="details">Key features (one per line)</label>
           <textarea id="details" className="input min-h-28" value={form.details} onChange={set("details")} />
         </div>
-        <div className="flex flex-wrap items-center gap-6 sm:col-span-2">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 sm:col-span-2">
           <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.inStock} onChange={set("inStock")} className="h-4 w-4 accent-caramel" /> In stock</label>
           <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.featured} onChange={set("featured")} className="h-4 w-4 accent-caramel" /> Featured on home page</label>
           <label className="flex items-center gap-2 text-sm">
@@ -160,7 +160,7 @@ export default function ProductEditor() {
       </div>
 
       <div className="card mt-6 p-6">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="label mb-0">Images (first image is the main photo)</p>
           <button type="button" className="btn-outline px-4 py-2" disabled={uploading} onClick={() => fileRef.current?.click()}>
             {uploading ? "Uploading…" : "Upload images"}
@@ -170,14 +170,15 @@ export default function ProductEditor() {
         {form.images.length === 0 ? (
           <p className="mt-4 text-sm text-muted">No images yet.</p>
         ) : (
-          <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-5">
+          <div className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 md:grid-cols-5">
             {form.images.map((img, i) => (
               <div key={img.url + i} className="group relative">
                 <ProductImage src={img.url} alt="" sizes="120px" className={`aspect-[4/5] rounded-xl ${i === 0 ? "ring-2 ring-caramel" : ""}`} />
-                <div className="absolute inset-x-1 bottom-1 flex justify-between gap-1 opacity-0 transition group-hover:opacity-100">
-                  <button type="button" onClick={() => moveImage(i, -1)} className="rounded bg-linen/95 px-2 text-xs" aria-label="Move left">←</button>
-                  <button type="button" onClick={() => removeImage(i)} className="rounded bg-linen/95 px-2 text-xs text-danger" aria-label="Remove">✕</button>
-                  <button type="button" onClick={() => moveImage(i, 1)} className="rounded bg-linen/95 px-2 text-xs" aria-label="Move right">→</button>
+                {/* Always visible on touch screens; revealed on hover where a mouse is available. */}
+                <div className="absolute inset-x-1 bottom-1 flex justify-between gap-1 transition [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100">
+                  <button type="button" onClick={() => moveImage(i, -1)} className="flex h-8 w-8 items-center justify-center rounded-full bg-linen/95 text-sm shadow" aria-label="Move left">←</button>
+                  <button type="button" onClick={() => removeImage(i)} className="flex h-8 w-8 items-center justify-center rounded-full bg-linen/95 text-sm text-danger shadow" aria-label="Remove">✕</button>
+                  <button type="button" onClick={() => moveImage(i, 1)} className="flex h-8 w-8 items-center justify-center rounded-full bg-linen/95 text-sm shadow" aria-label="Move right">→</button>
                 </div>
               </div>
             ))}
