@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f8f3ec;
+  --color-sand: #ece1d3;
+  --color-linen: #fffdf9;
+  --color-caramel: #a8683a;
+  --color-caramel-dark: #8a5229;
+  --color-espresso: #3a2a20;
+  --color-ink: #2a211c;
+  --color-muted: #7a6a5e;
+  --color-line: #e2d6c7;
+  --color-sage: #5f7a5c;
+  --color-danger: #a83a32;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-espresso text-linen hover:bg-ink;
+}
+@utility btn-accent {
+  @apply btn bg-caramel text-linen hover:bg-caramel-dark;
+}
+@utility btn-outline {
+  @apply btn border border-espresso/30 text-espresso hover:border-espresso hover:bg-espresso/5;
+}
+@utility input {
+  @apply w-full rounded-xl border border-line bg-linen px-4 py-3 text-sm outline-none transition placeholder:text-muted/70 focus:border-caramel focus:ring-2 focus:ring-caramel/20;
+}
+@utility label {
+  @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted;
+}
+@utility card {
+  @apply rounded-2xl border border-line bg-linen;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+}
+
+/* Cormorant defaults to old-style figures ("R5oo"); prices need lining numerals. */
+[class*="font-display"] {
+  font-variant-numeric: lining-nums;
+}
