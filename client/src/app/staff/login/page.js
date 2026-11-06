@@ -24,7 +24,7 @@ export default function StaffLogin() {
         <h1 className="mt-8 font-display text-3xl font-semibold text-espresso">Staff login</h1>
         <p className="mt-2 text-sm text-muted">Sign in with your staff Google account to manage orders and products.</p>
         <div className="mt-8 flex justify-center">
-          {process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ? (
+          {process.env.GOOGLE_CLIENT_ID ? (
             <GoogleLogin
               onSuccess={async ({ credential }) => {
                 setBusy(true);
@@ -42,7 +42,7 @@ export default function StaffLogin() {
               text="signin_with"
             />
           ) : (
-            <p className="rounded-lg bg-danger/10 px-3 py-2 text-sm text-danger">NEXT_PUBLIC_GOOGLE_CLIENT_ID is not configured.</p>
+            <p className="rounded-lg bg-danger/10 px-3 py-2 text-sm text-danger">GOOGLE_CLIENT_ID is not configured.</p>
           )}
         </div>
         {busy && <p className="mt-4 text-sm text-muted">Signing in…</p>}

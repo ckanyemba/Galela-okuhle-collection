@@ -21,7 +21,7 @@ npm run dev              # http://localhost:5000
 |---|---|
 | `MONGODB_URI` | MongoDB Atlas connection string |
 | `JWT_SECRET` | Long random string used to sign staff sessions |
-| `GOOGLE_CLIENT_ID` | Google OAuth "Web application" client ID (same value as the client's `NEXT_PUBLIC_GOOGLE_CLIENT_ID`) |
+| `GOOGLE_CLIENT_ID` | Google OAuth "Web application" client ID (same value as the client's `GOOGLE_CLIENT_ID`) |
 | `STAFF_EMAILS` | Comma-separated Google accounts allowed into the staff dashboard |
 | `CLIENT_URL` | Storefront URL(s), comma-separated. Used for CORS and payment return links |
 | `SERVER_URL` | Public URL of this API. PayFast sends payment notifications here |
