@@ -77,7 +77,7 @@ export default function CheckoutPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 pt-10 sm:px-6">
       <h1 className="font-display text-5xl font-semibold text-espresso">Checkout</h1>
-      <form onSubmit={placeOrder} className="mt-8 grid gap-8 lg:grid-cols-[1fr_340px]">
+      <form onSubmit={placeOrder} className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-8">
           <section className="card p-6">
             <h2 className="mb-5 font-display text-2xl font-semibold">Your details</h2>

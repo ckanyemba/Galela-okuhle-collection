@@ -18,12 +18,12 @@ export function PaymentBadge({ status }) {
 export default function Receipt({ order }) {
   return (
     <article className="card overflow-hidden print:border-0">
-      <header className="flex flex-wrap items-start justify-between gap-4 border-b border-dashed border-line bg-sand/40 px-6 py-6 sm:px-8">
+      <header className="flex flex-col gap-4 border-b border-dashed sm:flex-row sm:items-start sm:justify-between border-line bg-sand/40 px-6 py-6 sm:px-8">
         <div>
           <p className="font-display text-2xl font-semibold text-espresso">{SHOP.name}</p>
           <p className="mt-1 text-xs text-muted">{SHOP.phone} · {SHOP.email}</p>
         </div>
-        <div className="text-right">
+        <div className="sm:text-right">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted">Order receipt</p>
           <p className="mt-1 font-mono text-lg font-semibold text-espresso">{order.orderNumber}</p>
           <p className="text-xs text-muted">{formatDate(order.createdAt)}</p>

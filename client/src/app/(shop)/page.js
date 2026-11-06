@@ -24,7 +24,7 @@ export default async function Home() {
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-10 sm:px-6 md:grid-cols-2 md:pt-16">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-caramel">New season · Bags & home</p>
-          <h1 className="mt-4 font-display text-5xl font-semibold leading-[1.02] text-espresso sm:text-6xl lg:text-7xl">
+          <h1 className="mt-4 font-display text-5xl font-semibold leading-[1.02] text-espresso sm:text-6xl md:text-[3.25rem] lg:text-7xl">
             Carry something <em className="font-medium text-caramel">beautiful.</em>
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
@@ -65,8 +65,8 @@ export default async function Home() {
 
       <section className="mx-auto mt-20 max-w-6xl px-4 sm:px-6">
         <div className="mb-8 flex items-end justify-between">
-          <h2 className="font-display text-4xl font-semibold text-espresso">Customer favourites</h2>
-          <Link href="/shop" className="text-sm font-medium text-caramel-dark hover:underline">View all</Link>
+          <h2 className="font-display text-3xl font-semibold text-espresso sm:text-4xl">Customer favourites</h2>
+          <Link href="/shop" className="shrink-0 py-2 text-sm font-medium text-caramel-dark hover:underline">View all</Link>
         </div>
         <ProductGrid products={featured.slice(0, 8)} />
       </section>
