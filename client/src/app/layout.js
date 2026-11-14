@@ -3,8 +3,10 @@ import "@fontsource/cormorant-garamond/500.css";
 import "@fontsource/cormorant-garamond/500-italic.css";
 import "@fontsource/cormorant-garamond/600.css";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: { default: "Galela Okuhle Collection", template: "%s · Galela Okuhle Collection" },
   description: "Handbags, totes and Gosh home cleaning products. Order online and pay by card, EFT, WhatsApp or cash.",
 };

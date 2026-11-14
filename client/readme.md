@@ -14,6 +14,14 @@ The storefront and staff dashboard.
 - `/staff/orders/[id]`: receipt, change status or payment, private notes, WhatsApp the customer
 - `/staff/products`: add, edit or delete products, mark them sold out, upload photos
 
+## SEO
+
+- `/sitemap.xml` lists the home page, shop pages and every product, with product photos. It refreshes from the API every hour, so new products appear without a redeploy.
+- `/robots.txt` allows the shop and blocks `/staff`, `/cart`, `/checkout` and `/order/`.
+- Product pages set a canonical URL and a share image.
+
+After going live, submit `https://www.galelaokuhlecollection.co.za/sitemap.xml` in Google Search Console (Sitemaps).
+
 ## Run locally
 
 ```bash
@@ -28,5 +36,6 @@ Create a Vercel project with **Root Directory = `client`** and set:
 
 - `API_URL`: the deployed server URL
 - `GOOGLE_CLIENT_ID`: same as the server's `GOOGLE_CLIENT_ID`
+- `SITE_URL` (optional): public address, defaults to `https://www.galelaokuhlecollection.co.za`
 
 Then add the client's Vercel URL to the server's `CLIENT_URL`, and to the Google OAuth client's Authorised JavaScript origins.

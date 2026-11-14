@@ -7,7 +7,13 @@ import { getProduct, getProducts } from "@/lib/api";
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = await getProduct(slug);
-  return product ? { title: product.name, description: product.description } : { title: "Product not found" };
+  if (!product) return { title: "Product not found" };
+  return {
+    title: product.name,
+    description: product.description,
+    alternates: { canonical: `/product/${product.slug}` },
+    openGraph: { title: product.name, description: product.description, images: product.images?.slice(0, 1).map((i) => i.url) },
+  };
 }
 
 export default async function ProductPage({ params }) {
