@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="no-print mt-24 bg-espresso text-sand">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div>
-          <Logo light />
+          <Logo light variant="stacked" className="h-auto w-48" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-sand/75">
             Beautiful bags and home cleaning products, picked with care. Pay by card, Instant EFT or cash, or order on WhatsApp.
           </p>

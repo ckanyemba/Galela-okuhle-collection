@@ -20,7 +20,7 @@ export default function StaffLogin() {
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="card w-full max-w-sm p-8 text-center">
-        <div className="flex justify-center"><Logo /></div>
+        <div className="flex justify-center"><Logo variant="stacked" /></div>
         <h1 className="mt-8 font-display text-3xl font-semibold text-espresso">Staff login</h1>
         <p className="mt-2 text-sm text-muted">Sign in with your staff Google account to manage orders and products.</p>
         <div className="mt-8 flex justify-center">
