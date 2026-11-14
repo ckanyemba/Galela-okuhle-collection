@@ -38,11 +38,11 @@ export default async function Home() {
         </div>
         <div className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-xl shadow-espresso/10">
-            <Image src="/products/tan-tote-5.jpg" alt="Tan tote bag" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <Image src="/home/woven-tote.jpg" alt="Tan woven leather tote with gold chain strap" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
-          <div className="absolute -bottom-6 -left-4 hidden w-40 overflow-hidden rounded-2xl border-4 border-cream shadow-lg sm:block md:-left-10">
+          <div className="absolute -bottom-6 -left-4 hidden w-44 overflow-hidden rounded-2xl border-4 border-cream shadow-lg sm:block md:-left-10">
             <div className="relative aspect-square">
-              <Image src="/products/woven-flower-handbag.jpg" alt="Woven handbags" fill sizes="160px" className="object-cover" />
+              <Image src="/home/crossbody.jpg" alt="Tan leather crossbody bag" fill sizes="176px" className="object-cover" />
             </div>
           </div>
         </div>

@@ -31,7 +31,7 @@ function Shell({ children }) {
         {/* Phone: logo + account on top, nav below. Tablet/desktop: one row. */}
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3 sm:h-16 sm:flex-nowrap sm:py-0 sm:px-6">
           <div className="shrink-0 whitespace-nowrap">
-            <Logo />
+            <Logo className="h-8 w-auto" />
           </div>
           <nav className="order-3 flex w-full gap-1 sm:order-none sm:mr-auto sm:w-auto">
             {NAV.map((n) => {

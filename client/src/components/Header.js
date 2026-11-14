@@ -26,7 +26,7 @@ export default function Header() {
         <button className="-ml-2 p-2 text-espresso md:hidden" onClick={() => setOpen((v) => !v)} aria-label="Menu">
           {open ? <CloseIcon /> : <MenuIcon />}
         </button>
-        <Logo />
+        <Logo priority />
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((n) => (
             <Link key={n.href} href={n.href} className="py-2 text-sm font-medium text-espresso/80 transition hover:text-caramel-dark">
